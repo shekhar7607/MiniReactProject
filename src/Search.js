@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import Developer from './Developer';
-import DeveloperList from './DeveloperList';
+// import Developer from './Developer';
+// import DeveloperList from './DeveloperList';
 
 const Search = (props) => {
 
@@ -54,12 +53,14 @@ const Search = (props) => {
         setSearchTerm(event.target.value)
     }}
      />
+     
     {DeveloperListArray.filter((val)=>{
         if(searchTerm ===""){
             return val
         }else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
             return val
         }
+        return true
     }).map((val,key) =>  {
         return <div className="worker" key="key">
             <p>{val.name}</p>
