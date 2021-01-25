@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import './Developer.css';
 import DeveloperList from './DeveloperList';
 import 'tachyons';
+import Search from './Search';
 // import Video from './Video';
 
 
@@ -14,14 +15,17 @@ class Developer extends Component{
         this.state = {
             name : "Welcome to Developers World",
             term: "Developer",
-            h:"bvc"
+            h:"bvc",
+
         }
 
     }
 
     namechange(){
         this.setState({
-            name:"Developed by Swami Shekhar using React JS"
+            name:"Developed by Swami Shekhar using React JS",
+            
+
         })
     }
 
@@ -71,82 +75,38 @@ class Developer extends Component{
             }
         ];
 
+        
     
-       const developercard = DeveloperListArray.map((developercard,i) =>{
+       const developercardo = DeveloperListArray.map((developercard,i) =>{
            return  < DeveloperList key={i} name={DeveloperListArray[i].name} work={DeveloperListArray[i].work} />
        }
     
        )
 
-    //    const age =[
-    //        {
-    //            id:20,
-    //            name:"Parul",
-    //            loves:"Shekhar"
-    //        },
-    //        {
-    //         id:21,
-    //         name:"Shekhar",
-    //         loves:"Parul"
-    //     },
-    //     {
-    //         id:22,
-    //         name:"Rizwan"
-    //     }
-
-    //    ];
-       
-    //    const index = age.findIndex(function(ageL,name){
-    //        return ageL.name === 'Rizwan';
-    //    });
-
-    //    console.log(index);
      
-    //    const findName = function(ageL,name){
-    //        const index = ageL.findIndex(function(ageLD,index){
-    //            return ageLD.name.toLowerCase() === name.toLowerCase();
-    //        })
-    //        return ageL[index].loves;
+    //   const t = function bolo()
+    //    {
+    //        var p = document.getElementById("23").value;
+    //        document.getElementById("123").innerHTML = p;
     //    }
-        
-    //    let printme = findName(age,'Parul')
-    //    console.log(printme);
-        
-
-    //    const findDeveloper = function(developerName,name){
-    //        const index = developerName.findIndex(function(developerlist){
-    //                 return developerlist.name.toLowerCase() === name.toLowerCase();
-    //        })
-    //        return developerName[index].work;
-    //    }
-    //    let print_work = findDeveloper(DeveloperListArray,'LISA')
-    //    console.log(print_work);
 
 
-    
 
-       const find_ceo = function(developerName,work){
-           const index = developerName.findIndex(function(developerlist){
-            return developerlist.work.toLowerCase() === work.toLowerCase();
-        })
-           return developerName[index].name;
-       }
        
-
-        let ceo_name = find_ceo(DeveloperListArray,'ceo');
-       console.log("The ceo of the company is "+ ceo_name);
-
+      
+    
     
     return  (      
                     <div className="mainpage  nbv">
-                            <h1 className="tc grow">{this.state.name} loves </h1>
-                            {developercard}
+                            <h1 className="tc grow">{this.state.name}</h1>
+                            {developercardo}
                             <br/>
                             <button onClick={ () => this.namechange()} className="grow"  >Created By</button> 
                             <br></br>
                             <br></br>
-                            <input type="text" placeholder="Search Developer" id="23"/>
-                            <button>Search {this.state.term}</button>
+                    
+                            <Search />
+                            
                     </div>
                             
                        
